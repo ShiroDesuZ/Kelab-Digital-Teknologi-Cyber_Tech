@@ -576,6 +576,29 @@ textarea {
   form {
     padding: 1.25rem 1.35rem 1.75rem;
   }
+
+  .card-header {
+    padding: 1.25rem 1.25rem 0.5rem;
+  }
+
+  .card-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .card-banner {
+    height: 96px;
+  }
+
+  .modal {
+    padding: 1.5rem 1.1rem;
+  }
+
+  .toast {
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    text-align: center;
+  }
 }
 
 html, body {

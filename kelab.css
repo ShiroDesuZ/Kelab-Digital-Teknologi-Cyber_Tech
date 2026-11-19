@@ -11,6 +11,7 @@ body {
     padding: 0 0 130px 0;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     color: #f8fafc;
     font-family: 'Inter', sans-serif;
@@ -27,6 +28,12 @@ body {
     overflow: hidden;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
     -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
+}
+
+.slider-container .sidebar-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .slides-track {
@@ -289,4 +296,72 @@ h1 {
 }
 .menu-bloom-wrapper.active .card-bottom-right:hover {
     transform: translate(120px, 85px) scale(1.04);
+}
+
+@media (max-width: 700px) {
+    body {
+        padding-bottom: 110px;
+    }
+
+    .slider-container {
+        height: 190px;
+    }
+
+    .content-container {
+        width: calc(100% - 32px);
+        padding: 28px 22px;
+    }
+
+    .menu-bloom-wrapper {
+        margin-top: 54px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 100px;
+    }
+
+    .slider-container {
+        height: 150px;
+        margin-bottom: 16px;
+    }
+
+    .content-container {
+        padding: 24px 18px;
+        margin-bottom: 22px;
+    }
+
+    h1 {
+        font-size: clamp(20px, 6vw, 26px);
+    }
+
+    .menu-bloom-wrapper {
+        margin-top: 52px;
+    }
+
+    .bubble-card {
+        width: 120px;
+        height: 58px;
+    }
+
+    .menu-bloom-wrapper.active .card-top-left,
+    .menu-bloom-wrapper.active .card-top-left:hover {
+        transform: translate(-82px, -72px) scale(1);
+    }
+
+    .menu-bloom-wrapper.active .card-top-right,
+    .menu-bloom-wrapper.active .card-top-right:hover {
+        transform: translate(82px, -72px) scale(1);
+    }
+
+    .menu-bloom-wrapper.active .card-bottom-left,
+    .menu-bloom-wrapper.active .card-bottom-left:hover {
+        transform: translate(-82px, 72px) scale(1);
+    }
+
+    .menu-bloom-wrapper.active .card-bottom-right,
+    .menu-bloom-wrapper.active .card-bottom-right:hover {
+        transform: translate(82px, 72px) scale(1);
+    }
 }

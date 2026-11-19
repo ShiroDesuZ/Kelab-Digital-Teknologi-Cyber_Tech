@@ -276,9 +276,9 @@ html, body {
         /* Floating Fixed Toggle Button on Right Edge */
         .sidebar-toggle-btn {
             position: fixed;
-            top: 50%;
+            top: 20px;
             right: 20px;
-            transform: translateY(-50%);
+            transform: none;
             width: 52px;
             height: 52px;
             background: rgba(30, 41, 59, 0.85);
@@ -299,7 +299,7 @@ html, body {
 
         .sidebar-toggle-btn:hover {
             border-color: var(--accent-blue);
-            transform: translateY(-50%) scale(1.1);
+            transform: scale(1.1);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.4);
         }
 
@@ -561,4 +561,56 @@ html, body {
             background:
                 radial-gradient(circle at 50% 18%, rgba(56, 189, 248, 0.14), transparent 50%),
                 linear-gradient(160deg, #070b14 0%, #0f172a 55%, #1e293b 100%);
+        }
+
+        @media (max-width: 600px) {
+            .page-header {
+                padding: 28px 16px;
+            }
+
+            .header-overlay h1 {
+                font-size: clamp(20px, 6vw, 26px);
+            }
+
+            .projects-wrapper {
+                width: calc(100% - 28px);
+                margin: 20px auto 36px;
+                gap: 16px;
+            }
+
+            .top-grid,
+            .bottom-grid {
+                gap: 16px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .media-box,
+            .video-wrapper {
+                height: 190px;
+            }
+
+            .small-media {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .projects-wrapper {
+                width: calc(100% - 20px);
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .log-split {
+                grid-template-columns: 1fr;
+            }
+
+            .log-item img {
+                height: 150px;
+            }
         }

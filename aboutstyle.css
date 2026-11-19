@@ -228,3 +228,25 @@
                 radial-gradient(circle at 50% 18%, rgba(56, 189, 248, 0.14), transparent 50%),
                 linear-gradient(160deg, #070b14 0%, #0f172a 55%, #1e293b 100%);
         }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 24px 12px;
+            }
+
+            .about-container {
+                padding: 22px 16px;
+            }
+
+            .page-header {
+                margin-bottom: 24px;
+            }
+
+            .page-header h1 {
+                font-size: clamp(24px, 8vw, 32px);
+            }
+
+            .section-box {
+                padding: 18px 14px;
+            }
+        }

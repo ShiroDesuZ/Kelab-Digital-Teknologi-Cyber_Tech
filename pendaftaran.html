@@ -2,6 +2,7 @@
 <html lang="ms" class="dark">
 <head>
     <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="starfield.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Borang Pendaftaran Pelajar</title>
@@ -44,6 +45,7 @@
   </script>
 </head>
 <body class="text-white font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-sky-500/30 selection:text-sky-200">
+  <canvas id="starfieldCanvas" aria-hidden="true"></canvas>
 
   <!-- Main Centered Container -->
   <main class="relative z-10 min-h-screen flex items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
@@ -382,11 +384,10 @@
                 class="w-full appearance-none rounded-xl bg-[#182232]/90 border border-[#38465e] pl-4 pr-10 py-3 text-sm text-white transition-all duration-200 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/25 hover:border-slate-500 cursor-pointer"
               >
                 <option value="" disabled selected class="bg-[#182232] text-slate-400">-- Sila Pilih Kursus --</option>
-                <option value="Sains Komputer" class="bg-[#182232] text-white">Sains Komputer</option>
-                <option value="Teknologi Maklumat" class="bg-[#182232] text-white">Teknologi Maklumat</option>
-                <option value="Kejuruteraan Perisian" class="bg-[#182232] text-white">Kejuruteraan Perisian</option>
-                <option value="Rangkaian & Keselamatan Siber" class="bg-[#182232] text-white">Rangkaian &amp; Keselamatan Siber</option>
-                <option value="Sistem Komputer & Perkakasan" class="bg-[#182232] text-white">Sistem Komputer &amp; Perkakasan</option>
+                <option value="Sains Komputer" class="bg-[#182232] text-white">Teknologi Komputer</option>
+                <option value="Teknologi Maklumat" class="bg-[#182232] text-white">Teknologi Elektronik</option>
+                <option value="Kejuruteraan Perisian" class="bg-[#182232] text-white">Teknologi Pembuatan</option>
+                <option value="Rangkaian & Keselamatan Siber" class="bg-[#182232] text-white">Teknologi Mekatronik</option>
               </select>
               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400">
                 <i data-lucide="chevron-down" class="w-4 h-4"></i>
@@ -794,5 +795,6 @@
         });
 
   </script>
+  <script src="starfield.js"></script>
 </body>
 </html>

@@ -548,3 +548,62 @@
                 radial-gradient(circle at 50% 18%, rgba(56, 189, 248, 0.14), transparent 50%),
                 linear-gradient(160deg, #070b14 0%, #0f172a 55%, #1e293b 100%);
         }
+
+        @media (max-width: 680px) {
+            html body {
+                padding: 24px 14px 104px;
+            }
+
+            .left-circles-dock {
+                top: auto;
+                bottom: 12px;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .circle-node {
+                width: 46px;
+                height: 46px;
+            }
+
+            .popout-card {
+                left: 50%;
+                width: 150px;
+                max-width: 44vw;
+                height: 42px;
+                font-size: 11px;
+                padding: 0 8px;
+            }
+
+            .popout-top,
+            .circle-node:hover .popout-top {
+                top: auto;
+                bottom: 52px;
+                transform: translate(-50%, 0) rotate(350deg) scale(1);
+            }
+
+            .popout-bottom,
+            .circle-node:hover .popout-bottom {
+                top: auto;
+                bottom: 98px;
+                transform: translate(-50%, 0) rotate(10deg) scale(1);
+            }
+
+            .circle-node:hover .popout-top:hover {
+                transform: translate(-50%, 0) rotate(350deg) scale(1.04);
+            }
+
+            .circle-node:hover .popout-bottom:hover {
+                transform: translate(-50%, 0) rotate(10deg) scale(1.04);
+            }
+
+            .contact-wrapper {
+                padding: 26px 18px;
+            }
+
+            .contact-header h1 {
+                font-size: clamp(22px, 6vw, 28px);
+            }
+        }
