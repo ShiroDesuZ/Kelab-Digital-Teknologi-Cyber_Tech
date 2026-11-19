@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelab Teknologi CyberTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="kelab.css">
+</head>
+<body>
+
+    <!-- Top Full-Width Slider -->
+    <div class="slider-container">
+        <div class="slides-track" id="sliderTrack">
+            <div class="slide"><img src="images/DGlobe.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="images/DSpace.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="images/DZoom.jpg" alt="Slide 3"></div>
+            <div class="slide"><img src="images/jmti.jpeg" alt="Slide 4"></div>
+        </div>
+    </div>
+
+    <!-- Centered Content Card -->
+    <div class="content-container">
+        <span class="tag">JMTI • EST. 2026</span>
+        <h1>KELAB TEKNOLOGI DIGITAL<br>CYBERTECH</h1>
+        <div class="subtitle">Teknologi Hari Ini, Masa Depan Esok</div>
+        <div class="description">
+            Kelab Teknologi Digital merupakan kelab yang memberi peluang kepada pelajar mempelajari teknologi dan kemahiran digital melalui projek praktikal, bengkel, dan kolaborasi.
+        </div>
+
+        <div class="info-section">
+            <h3>MAKLUMAT KELAB</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span>Nama Kelab</span>
+                    <strong>Teknologi</strong>
+                </div>
+                <div class="info-item">
+                    <span>Institusi</span>
+                    <strong>JMTI</strong>
+                </div>
+                <div class="info-item">
+                    <span>Tahun Penubuhan</span>
+                    <strong>2026</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="focus-section">
+            <h3>BIDANG FOKUS</h3>
+            <div class="focus-pills">
+                <span>Web & Aplikasi</span>
+                <span>Keselamatan Siber</span>
+                <span>Inovasi Digital</span>
+                <span>Projek Pasukan</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Button with 4 Corner Bubble Popups -->
+    <div class="menu-bloom-wrapper" id="menuWrapper">
+        <button class="menu-main-btn" onclick="toggleMenuBloom()">MENU</button>
+
+        <a href="pendaftaran.html" class="bubble-card card-top-left">
+            <img src="images/DGlobe.jpg" alt="Kelab">
+            <span>PENDAFTARAN</span>
+        </a>
+
+        <a href="about.html" class="bubble-card card-top-right">
+            <img src="images/DZoom.jpg" alt="About">
+            <span>TENTANG KAMI</span>
+        </a>
+
+        <a href="service.html" class="bubble-card card-bottom-left">
+            <img src="images/DSpace.jpg" alt="Sidebar Testing">
+            <span>HUBUNGI KAMI</span>
+        </a>
+
+        <a href="Project.html" class="bubble-card card-bottom-right">
+            <img src="images/jmti.jpeg" alt="Project">
+            <span>PROJECT</span>
+        </a>
+    </div>
+
+    <script>
+        // Auto-Slide Script
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            const track = document.getElementById('sliderTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        setInterval(nextSlide, 3500);
+
+        // Menu Toggle Script
+        function toggleMenuBloom() {
+            const wrapper = document.getElementById('menuWrapper');
+            wrapper.classList.toggle('active');
+        }
+
+        window.addEventListener('click', function(e) {
+            const wrapper = document.getElementById('menuWrapper');
+            if (!wrapper.contains(e.target)) {
+                wrapper.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
