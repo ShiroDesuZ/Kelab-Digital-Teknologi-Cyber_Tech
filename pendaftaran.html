@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ms" class="dark">
+<head>
+    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Borang Pendaftaran Pelajar</title>
+
+  <!-- Load Inter Font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Load Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Configure Tailwind with custom colors matching the original palette -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              bg: '#182232',      // Original deep navy/slate background
+              card: '#222d3f',    // Original card surface
+              input: '#1c2636',   // Slightly recessed input field background
+              border: '#38465e',  // Original subtle slate border
+              hover: '#2a374d',   // Interactive hover state
+            },
+            accent: {
+              blue: '#3b82f6',    // Tech blue highlight
+              cyan: '#38bdf8',    // Vibrant cyan highlight
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-white font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-sky-500/30 selection:text-sky-200">
+
+  <!-- Main Centered Container -->
+  <main class="relative z-10 min-h-screen flex items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
+    
+    <!-- Form Card Container -->
+    <div class="w-full max-w-3xl bg-[#222d3f]/95 backdrop-blur-md border border-[#38465e] rounded-2xl shadow-2xl shadow-black/40 overflow-hidden transition-all duration-300">
+      
+      <!-- Decorative Tech Header Banner with Custom Circuit & IT Visual Illustration -->
+      <div class="relative bg-gradient-to-r from-[#182232] via-[#1f2c42] to-[#182232] border-b border-[#38465e] px-6 py-7 sm:px-10 sm:py-8 overflow-hidden">
+        
+        <!-- Custom Geometric Circuit & Motherboard SVG Illustration (Right Side / Background Accent) -->
+        <svg class="absolute right-0 top-0 h-full w-auto opacity-80 pointer-events-none" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="circuitGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05" />
+            </linearGradient>
+            <linearGradient id="chipGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25" />
+              <stop offset="100%" stop-color="#1e293b" stop-opacity="0.6" />
+            </linearGradient>
+          </defs>
+
+          <!-- Circuit Traces -->
+          <path d="M120 30 H210 L235 55 H340" stroke="url(#circuitGrad1)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M90 65 H185 L210 90 H280 L300 70 H390" stroke="url(#circuitGrad1)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M150 115 H230 L255 140 H370" stroke="url(#circuitGrad1)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M180 150 H290 L315 125 H410" stroke="url(#circuitGrad1)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M270 15 V45 L290 65" stroke="#38bdf8" stroke-opacity="0.25" stroke-width="1.5"/>
+
+          <!-- Circuit Nodes -->
+          <circle cx="120" cy="30" r="3" fill="#38bdf8" fill-opacity="0.6"/>
+          <circle cx="340" cy="55" r="3.5" fill="#3b82f6" fill-opacity="0.8"/>
+          <circle cx="90" cy="65" r="2.5" fill="#38bdf8" fill-opacity="0.4"/>
+          <circle cx="390" cy="70" r="3" fill="#38bdf8" fill-opacity="0.7"/>
+          <circle cx="150" cy="115" r="3" fill="#3b82f6" fill-opacity="0.5"/>
+          <circle cx="370" cy="140" r="2.5" fill="#38bdf8" fill-opacity="0.6"/>
+
+          <!-- Isometric/Geometric Microchip & Tech Badge Graphic -->
+          <g transform="translate(295, 42)">
+            <!-- Outer Chip Frame -->
+            <rect x="0" y="0" width="76" height="76" rx="14" fill="url(#chipGlow)" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.5"/>
+            <!-- Inner Core -->
+            <rect x="14" y="14" width="48" height="48" rx="8" fill="#182232" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="1.5"/>
+            <!-- Core Inner Grid / Code Lines -->
+            <rect x="23" y="25" width="18" height="4" rx="2" fill="#38bdf8" fill-opacity="0.8"/>
+            <rect x="23" y="34" width="30" height="4" rx="2" fill="#3b82f6" fill-opacity="0.6"/>
+            <rect x="23" y="43" width="22" height="4" rx="2" fill="#38bdf8" fill-opacity="0.4"/>
+            <circle cx="49" cy="27" r="2.5" fill="#38bdf8"/>
+            
+            <!-- Microchip Pins (Top & Bottom) -->
+            <line x1="22" y1="-7" x2="22" y2="0" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="38" y1="-7" x2="38" y2="0" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="54" y1="-7" x2="54" y2="0" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+
+            <line x1="22" y1="76" x2="22" y2="83" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="38" y1="76" x2="38" y2="83" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="54" y1="76" x2="54" y2="83" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+
+            <!-- Microchip Pins (Left & Right) -->
+            <line x1="-7" y1="22" x2="0" y2="22" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="-7" y1="38" x2="0" y2="38" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="-7" y1="54" x2="0" y2="54" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+
+            <line x1="76" y1="22" x2="83" y2="22" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="76" y1="38" x2="83" y2="38" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+            <line x1="76" y1="54" x2="83" y2="54" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+
+        <!-- Header Text Content -->
+        <div class="relative z-10 max-w-lg">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/25 text-sky-300 text-xs font-medium mb-3">
+            <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+            Kelab Teknologi Digital CyberTech
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Borang Pendaftaran Pelajar
+          </h1>
+          <p class="mt-1.5 text-sm text-slate-300/90 leading-relaxed">
+            Sila lengkapkan maklumat peribadi, minat teknikal, dan pilihan kursus anda di bawah untuk mendaftar.
+          </p>
+        </div>
+      </div>
+
+      <!-- Registration Form Body -->
+      <form id="studentForm" class="p-6 sm:p-10 space-y-6" novalidate>
+        
+        <!-- Section 1: Maklumat Peribadi (Personal Details) -->
+        <div class="space-y-5">
+          
+          <!-- Field 1: Nama Pelajar -->
+          <div>
+            <label for="namaPelajar" class="flex items-center gap-2 text-sm font-semibold text-slate-100 mb-2">
+              <i data-lucide="user" class="w-4 h-4 text-sky-400"></i>
+              <span>Nama Pelajar:</span>
+              <span class="text-sky-400">*</span>
+            </label>
+            <div class="relative">
+              <input
+                type="text"
+                id="namaPelajar"
+                name="namaPelajar"
+                required
+                placeholder="Masukkan nama penuh"
+                class="w-full rounded-xl bg-[#182232]/90 border border-[#38465e] px-4 py-3 text-sm text-white placeholder-slate-400/70 transition-all duration-200 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/25 hover:border-slate-500"
+              />
+            </div>
+            <p id="err-namaPelajar" class="hidden mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+              <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+              Sila masukkan nama penuh pelajar.
+            </p>
+          </div>
+
+          <!-- Two-Column Row for Email & Password on Tablet/Desktop -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            
+            <!-- Field 2: Email -->
+            <div>
+              <label for="email" class="flex items-center gap-2 text-sm font-semibold text-slate-100 mb-2">
+                <i data-lucide="mail" class="w-4 h-4 text-sky-400"></i>
+                <span>Email:</span>
+                <span class="text-sky-400">*</span>
+              </label>
+              <div class="relative">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="contoh@gmail.com"
+                  class="w-full rounded-xl bg-[#182232]/90 border border-[#38465e] px-4 py-3 text-sm text-white placeholder-slate-400/70 transition-all duration-200 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/25 hover:border-slate-500"
+                />
+              </div>
+              <p id="err-email" class="hidden mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+                Sila masukkan alamat email yang sah.
+              </p>
+            </div>
+
+            <!-- Field 3: Password with Show/Hide Toggle -->
+            <div>
+              <label for="password" class="flex items-center gap-2 text-sm font-semibold text-slate-100 mb-2">
+                <i data-lucide="lock" class="w-4 h-4 text-sky-400"></i>
+                <span>Password:</span>
+                <span class="text-sky-400">*</span>
+              </label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                  placeholder="Masukkan Password"
+                  class="w-full rounded-xl bg-[#182232]/90 border border-[#38465e] pl-4 pr-11 py-3 text-sm text-white placeholder-slate-400/70 transition-all duration-200 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/25 hover:border-slate-500"
+                />
+                <button
+                  type="button"
+                  id="togglePassword"
+                  aria-label="Tunjuk atau sembunyi kata laluan"
+                  class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 hover:text-sky-400 transition-colors focus:outline-none"
+                >
+                  <i data-lucide="eye" id="eyeIcon" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <p id="err-password" class="hidden mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+                <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+                Sila masukkan kata laluan anda.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Field 4: Jantina (Stylized Radio Pill Cards) -->
+          <div>
+            <span class="flex items-center gap-2 text-sm font-semibold text-slate-100 mb-2.5">
+              <i data-lucide="users" class="w-4 h-4 text-sky-400"></i>
+              <span>Jantina:</span>
+              <span class="text-sky-400">*</span>
+            </span>
+            <div class="grid grid-cols-2 gap-3 sm:max-w-md" role="radiogroup" aria-label="Jantina">
+              
+              <!-- Option: Lelaki -->
+              <label class="relative cursor-pointer group">
+                <input type="radio" name="jantina" value="Lelaki" class="peer sr-only" required />
+                <div class="flex items-center justify-between px-4 py-3 rounded-xl bg-[#182232]/90 border border-[#38465e] text-slate-300 transition-all duration-200 group-hover:border-slate-500 peer-checked:border-sky-400 peer-checked:bg-sky-500/15 peer-checked:text-white peer-checked:shadow-sm peer-checked:shadow-sky-500/10">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full border border-slate-400 flex items-center justify-center transition-colors peer-checked:border-sky-400">
+                      <span class="radio-dot w-1.5 h-1.5 rounded-full bg-sky-400 opacity-0 transition-opacity"></span>
+                    </span>
+                    <span class="text-sm font-medium">Lelaki</span>
+                  </div>
+                  <i data-lucide="mars" class="w-4 h-4 text-slate-400 group-hover:text-sky-300 transition-colors"></i>
+                </div>
+              </label>
+
+              <!-- Option: Perempuan -->
+              <label class="relative cursor-pointer group">
+                <input type="radio" name="jantina" value="Perempuan" class="peer sr-only" />
+                <div class="flex items-center justify-between px-4 py-3 rounded-xl bg-[#182232]/90 border border-[#38465e] text-slate-300 transition-all duration-200 group-hover:border-slate-500 peer-checked:border-sky-400 peer-checked:bg-sky-500/15 peer-checked:text-white peer-checked:shadow-sm peer-checked:shadow-sky-500/10">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full border border-slate-400 flex items-center justify-center transition-colors">
+                      <span class="radio-dot w-1.5 h-1.5 rounded-full bg-sky-400 opacity-0 transition-opacity"></span>
+                    </span>
+                    <span class="text-sm font-medium">Perempuan</span>
+                  </div>
+                  <i data-lucide="venus" class="w-4 h-4 text-slate-400 group-hover:text-sky-300 transition-colors"></i>
+                </div>
+              </label>
+
+            </div>
+            <p id="err-jantina" class="hidden mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+              <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+              Sila pilih jantina anda.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Subtle Divider -->
+        <hr class="border-[#38465e]/70" />
+
+        <!-- Field 5: Hobi (Interactive Multi-Select Pill/Card Checkboxes) -->
+        <div>
+          <div class="flex items-center justify-between mb-2.5">
+            <span class="flex items-center gap-2 text-sm font-semibold text-slate-100">
+              <i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i>
+              <span>Hobi:</span>
+            </span>
+            <span id="hobbyCount" class="text-xs text-slate-400">Pilih satu atau lebih</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            
+            <!-- Hobby 1: Hardware Repair & PC Building -->
+            <label class="cursor-pointer group select-none">
+              <input type="checkbox" name="hobi" value="Hardware Repair & PC Building" class="peer sr-only hobby-checkbox" />
+              <div class="h-full flex items-center gap-3 p-3.5 rounded-xl bg-[#182232]/90 border border-[#38465e] text-slate-300 transition-all duration-200 group-hover:border-slate-500 group-hover:bg-[#1e2a3d] peer-checked:border-sky-400 peer-checked:bg-sky-500/15 peer-checked:text-white">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-[#222d3f] border border-[#38465e] flex items-center justify-center text-sky-400 transition-colors">
+                  <i data-lucide="wrench" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs sm:text-sm font-medium leading-snug">Hardware Repair &amp; PC Building</p>
+                </div>
+                <div class="check-indicator flex-shrink-0 w-5 h-5 rounded-md border border-[#38465e] bg-[#222d3f] flex items-center justify-center transition-all">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-white opacity-0 transition-opacity"></i>
+                </div>
+              </div>
+            </label>
+
+            <!-- Hobby 2: Web Development & UI Design -->
+            <label class="cursor-pointer group select-none">
+              <input type="checkbox" name="hobi" value="Web Development & UI Design" class="peer sr-only hobby-checkbox" />
+              <div class="h-full flex items-center gap-3 p-3.5 rounded-xl bg-[#182232]/90 border border-[#38465e] text-slate-300 transition-all duration-200 group-hover:border-slate-500 group-hover:bg-[#1e2a3d] peer-checked:border-sky-400 peer-checked:bg-sky-500/15 peer-checked:text-white">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-[#222d3f] border border-[#38465e] flex items-center justify-center text-sky-400 transition-colors">
+                  <i data-lucide="layout-template" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs sm:text-sm font-medium leading-snug">Web Development &amp; UI Design</p>
+                </div>
+                <div class="check-indicator flex-shrink-0 w-5 h-5 rounded-md border border-[#38465e] bg-[#222d3f] flex items-center justify-center transition-all">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-white opacity-0 transition-opacity"></i>
+                </div>
+              </div>
+            </label>
+
+            <!-- Hobby 3: System Diagnostics & Error Analysis -->
+            <label class="cursor-pointer group select-none">
+              <input type="checkbox" name="hobi" value="System Diagnostics & Error Analysis" class="peer sr-only hobby-checkbox" />
+              <div class="h-full flex items-center gap-3 p-3.5 rounded-xl bg-[#182232]/90 border border-[#38465e] text-slate-300 transition-all duration-200 group-hover:border-slate-500 group-hover:bg-[#1e2a3d] peer-checked:border-sky-400 peer-checked:bg-sky-500/15 peer-checked:text-white">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-[#222d3f] border border-[#38465e] flex items-center justify-center text-sky-400 transition-colors">
+                  <i data-lucide="activity" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs sm:text-sm font-medium leading-snug">System Diagnostics &amp; Error Analysis</p>
+                </div>
+                <div class="check-indicator flex-shrink-0 w-5 h-5 rounded-md border border-[#38465e] bg-[#222d3f] flex items-center justify-center transition-all">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-white opacity-0 transition-opacity"></i>
+                </div>
+              </div>
+            </label>
+
+            <!-- Hobby 4: Scripting & Software Troubleshooting -->
+            <label class="cursor-pointer group select-none">
+              <input type="checkbox" name="hobi" value="Scripting & Software Troubleshooting" class="peer sr-only hobby-checkbox" />
+              <div class="h-full flex items-center gap-3 p-3.5 rounded-xl bg-[#182232]/90 border border-[#38465e] text-slate-300 transition-all duration-200 group-hover:border-slate-500 group-hover:bg-[#1e2a3d] peer-checked:border-sky-400 peer-checked:bg-sky-500/15 peer-checked:text-white">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-[#222d3f] border border-[#38465e] flex items-center justify-center text-sky-400 transition-colors">
+                  <i data-lucide="terminal" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs sm:text-sm font-medium leading-snug">Scripting &amp; Software Troubleshooting</p>
+                </div>
+                <div class="check-indicator flex-shrink-0 w-5 h-5 rounded-md border border-[#38465e] bg-[#222d3f] flex items-center justify-center transition-all">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-white opacity-0 transition-opacity"></i>
+                </div>
+              </div>
+            </label>
+
+            <!-- Hobby 5: PC Gaming & Hardware Benchmarking (Spans full width on sm+ for balanced 2x2+1 layout) -->
+            <label class="cursor-pointer group select-none sm:col-span-2">
+              <input type="checkbox" name="hobi" value="PC Gaming & Hardware Benchmarking" class="peer sr-only hobby-checkbox" />
+              <div class="h-full flex items-center gap-3 p-3.5 rounded-xl bg-[#182232]/90 border border-[#38465e] text-slate-300 transition-all duration-200 group-hover:border-slate-500 group-hover:bg-[#1e2a3d] peer-checked:border-sky-400 peer-checked:bg-sky-500/15 peer-checked:text-white">
+                <div class="flex-shrink-0 w-9 h-9 rounded-lg bg-[#222d3f] border border-[#38465e] flex items-center justify-center text-sky-400 transition-colors">
+                  <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs sm:text-sm font-medium leading-snug">PC Gaming &amp; Hardware Benchmarking</p>
+                </div>
+                <div class="check-indicator flex-shrink-0 w-5 h-5 rounded-md border border-[#38465e] bg-[#222d3f] flex items-center justify-center transition-all">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-white opacity-0 transition-opacity"></i>
+                </div>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Subtle Divider -->
+        <hr class="border-[#38465e]/70" />
+
+        <!-- Section 3: Akademik & Alamat -->
+        <div class="space-y-5">
+          
+          <!-- Field 6: Kursus (Custom-Styled Select Dropdown) -->
+          <div>
+            <label for="kursus" class="flex items-center gap-2 text-sm font-semibold text-slate-100 mb-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-400"></i>
+              <span>Kursus:</span>
+              <span class="text-sky-400">*</span>
+            </label>
+            <div class="relative">
+              <select
+                id="kursus"
+                name="kursus"
+                required
+                class="w-full appearance-none rounded-xl bg-[#182232]/90 border border-[#38465e] pl-4 pr-10 py-3 text-sm text-white transition-all duration-200 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/25 hover:border-slate-500 cursor-pointer"
+              >
+                <option value="" disabled selected class="bg-[#182232] text-slate-400">-- Sila Pilih Kursus --</option>
+                <option value="Sains Komputer" class="bg-[#182232] text-white">Sains Komputer</option>
+                <option value="Teknologi Maklumat" class="bg-[#182232] text-white">Teknologi Maklumat</option>
+                <option value="Kejuruteraan Perisian" class="bg-[#182232] text-white">Kejuruteraan Perisian</option>
+                <option value="Rangkaian & Keselamatan Siber" class="bg-[#182232] text-white">Rangkaian &amp; Keselamatan Siber</option>
+                <option value="Sistem Komputer & Perkakasan" class="bg-[#182232] text-white">Sistem Komputer &amp; Perkakasan</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400">
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <p id="err-kursus" class="hidden mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+              <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+              Sila pilih kursus pengajian anda.
+            </p>
+          </div>
+
+          <!-- Field 7: Alamat Rumah -->
+          <div>
+            <label for="alamatRumah" class="flex items-center gap-2 text-sm font-semibold text-slate-100 mb-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-sky-400"></i>
+              <span>Alamat Rumah:</span>
+              <span class="text-sky-400">*</span>
+            </label>
+            <textarea
+              id="alamatRumah"
+              name="alamatRumah"
+              rows="3"
+              required
+              placeholder="Masukkan alamat rumah anda"
+              class="w-full rounded-xl bg-[#182232]/90 border border-[#38465e] px-4 py-3 text-sm text-white placeholder-slate-400/70 transition-all duration-200 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/25 hover:border-slate-500 resize-y"
+            ></textarea>
+            <p id="err-alamatRumah" class="hidden mt-1.5 text-xs text-rose-400 flex items-center gap-1">
+              <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+              Sila masukkan alamat rumah anda.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Action Buttons: HANTAR & PADAM -->
+        <div class="pt-3 flex flex-col-reverse sm:flex-row items-center justify-end gap-3 sm:gap-4">
+          <button
+            type="button"
+            id="btnPadam"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-[#38465e] bg-[#182232]/70 text-slate-300 text-sm font-semibold tracking-wide hover:bg-[#2a374d] hover:text-white hover:border-slate-500 active:scale-[0.98] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400/30"
+          >
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            <span>PADAM</span>
+          </button>
+
+          <button
+            type="submit"
+            id="btnHantar"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-sky-500 text-white text-sm font-semibold tracking-wide shadow-lg shadow-blue-500/25 hover:from-blue-500 hover:to-sky-400 hover:shadow-sky-400/35 active:scale-[0.98] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400/50"
+          >
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>HANTAR</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Confirmation Modal (Displayed when HANTAR is clicked and validated) -->
+  <div id="confirmationModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-[#0f1622]/80 backdrop-blur-sm transition-opacity duration-200" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="w-full max-w-md bg-[#222d3f] border border-[#38465e] rounded-2xl shadow-2xl shadow-black/60 overflow-hidden transform transition-all">
+      
+      <!-- Modal Top Accent Bar -->
+      <div class="h-1.5 w-full bg-gradient-to-r from-blue-500 via-sky-400 to-blue-500"></div>
+
+      <div class="p-6 sm:p-7">
+        <div class="flex items-center gap-3.5 mb-4">
+          <div class="w-11 h-11 rounded-xl bg-sky-500/15 border border-sky-400/30 flex items-center justify-center text-sky-400 flex-shrink-0">
+            <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h2 id="modalTitle" class="text-lg font-bold text-white">Pendaftaran Berjaya!</h2>
+            <p class="text-xs text-slate-400">Maklumat pelajar telah direkodkan.</p>
+          </div>
+        </div>
+
+        <!-- Summary Box -->
+        <div id="modalSummary" class="bg-[#182232] border border-[#38465e] rounded-xl p-4 space-y-2.5 text-xs sm:text-sm text-slate-200 mb-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <button
+          type="button"
+          id="closeModalBtn"
+          class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white text-sm font-semibold shadow-md shadow-blue-500/20 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400/50"
+        >
+          Selesai &amp; Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subtle Notification Toast (Used when PADAM resets the form) -->
+  <div id="resetToast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 px-4 py-3 rounded-xl bg-[#222d3f] border border-[#38465e] text-slate-200 text-xs sm:text-sm shadow-xl shadow-black/40 transition-all duration-300">
+    <i data-lucide="info" class="w-4 h-4 text-sky-400"></i>
+    <span>Borang telah dikosongkan.</span>
+  </div>
+
+   <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Buka Navigasi">
+        <span class="hamburger-bar bar1"></span>
+        <span class="hamburger-bar bar2"></span>
+        <span class="hamburger-bar bar3"></span>
+    </button>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Off-Canvas Sidebar Drawer -->
+    <aside class="sidebar-drawer" id="sidebarDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <div>
+                <div class="brand-title">Kelab Teknologi Digital</div>
+                <div class="brand-subtitle">Menu Navigasi</div>
+            </div>
+            <button class="close-btn" id="sidebarClose" aria-label="Tutup Menu">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <nav>
+            <ul class="nav-list">
+                <li>
+                    <a href="kelab.html" class="nav-link">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                        <span>Laman Utama</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="nav-link">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <span>Tentang Kami</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="project.html" class="nav-link active">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.4-2.4c.4-.4.4-1 0-1.3z"/></svg>
+                        <span>Project</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="pendaftaran.html" class="nav-link">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                        <span>Pendaftaran</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="service.html" class="nav-link">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>Hubungi Kami</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="drawer-footer">
+            &copy; 2026 Kelab Teknologi Digital
+        </div>
+
+    </aside>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      const form = document.getElementById('studentForm');
+      const passwordInput = document.getElementById('password');
+      const togglePasswordBtn = document.getElementById('togglePassword');
+      const btnPadam = document.getElementById('btnPadam');
+      const confirmationModal = document.getElementById('confirmationModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modalSummary = document.getElementById('modalSummary');
+      const resetToast = document.getElementById('resetToast');
+      const hobbyCheckboxes = document.querySelectorAll('.hobby-checkbox');
+      const hobbyCountLabel = document.getElementById('hobbyCount');
+      const radioInputs = document.querySelectorAll('input[name="jantina"]');
+
+      // 1. Password Visibility Toggle
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        
+        // Swap icon cleanly
+        togglePasswordBtn.innerHTML = isPassword
+          ? '<i data-lucide="eye-off" class="w-4 h-4 text-sky-400"></i>'
+          : '<i data-lucide="eye" class="w-4 h-4"></i>';
+        lucide.createIcons();
+      });
+
+      // 2. Sync Custom Visual Indicators for Checkboxes & Radios
+      function updateInteractiveStyles() {
+        // Update Checkbox card checkmarks
+        let checkedCount = 0;
+        hobbyCheckboxes.forEach((cb) => {
+          const card = cb.nextElementSibling;
+          const indicator = card.querySelector('.check-indicator');
+          const checkIcon = indicator.querySelector('svg');
+          if (cb.checked) {
+            checkedCount++;
+            indicator.classList.add('bg-sky-500', 'border-sky-400');
+            indicator.classList.remove('bg-[#222d3f]', 'border-[#38465e]');
+            if (checkIcon) checkIcon.classList.remove('opacity-0');
+          } else {
+            indicator.classList.remove('bg-sky-500', 'border-sky-400');
+            indicator.classList.add('bg-[#222d3f]', 'border-[#38465e]');
+            if (checkIcon) checkIcon.classList.add('opacity-0');
+          }
+        });
+
+        hobbyCountLabel.textContent = checkedCount > 0
+          ? `${checkedCount} dipilih`
+          : 'Pilih satu atau lebih';
+        hobbyCountLabel.className = checkedCount > 0
+          ? 'text-xs font-medium text-sky-400'
+          : 'text-xs text-slate-400';
+
+        // Update Radio card dots
+        radioInputs.forEach((radio) => {
+          const dot = radio.nextElementSibling.querySelector('.radio-dot');
+          if (dot) {
+            dot.style.opacity = radio.checked ? '1' : '0';
+          }
+        });
+      }
+
+      hobbyCheckboxes.forEach(cb => cb.addEventListener('change', updateInteractiveStyles));
+      radioInputs.forEach(radio => radio.addEventListener('change', updateInteractiveStyles));
+
+      // 3. Helper to clear validation error messages
+      function clearErrors() {
+        const errorEls = document.querySelectorAll('[id^="err-"]');
+        errorEls.forEach(el => el.classList.add('hidden'));
+      }
+
+      // 4. Form Reset ("PADAM") Handler
+      btnPadam.addEventListener('click', () => {
+        form.reset();
+        passwordInput.type = 'password';
+        togglePasswordBtn.innerHTML = '<i data-lucide="eye" class="w-4 h-4"></i>';
+        lucide.createIcons();
+        clearErrors();
+        updateInteractiveStyles();
+
+        // Show subtle toast notification
+        resetToast.classList.remove('hidden');
+        resetToast.classList.add('flex');
+        setTimeout(() => {
+          resetToast.classList.add('hidden');
+          resetToast.classList.remove('flex');
+        }, 2500);
+      });
+
+      // 5. Form Submission ("HANTAR") & Validation Handler
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        clearErrors();
+
+        const nama = document.getElementById('namaPelajar').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const jantinaEl = document.querySelector('input[name="jantina"]:checked');
+        const kursus = document.getElementById('kursus').value;
+        const alamat = document.getElementById('alamatRumah').value.trim();
+
+        let isValid = true;
+
+        if (!nama) {
+          document.getElementById('err-namaPelajar').classList.remove('hidden');
+          isValid = false;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          document.getElementById('err-email').classList.remove('hidden');
+          isValid = false;
+        }
+        if (!password) {
+          document.getElementById('err-password').classList.remove('hidden');
+          isValid = false;
+        }
+        if (!jantinaEl) {
+          document.getElementById('err-jantina').classList.remove('hidden');
+          isValid = false;
+        }
+        if (!kursus) {
+          document.getElementById('err-kursus').classList.remove('hidden');
+          isValid = false;
+        }
+        if (!alamat) {
+          document.getElementById('err-alamatRumah').classList.remove('hidden');
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Collect selected hobbies
+        const selectedHobbies = Array.from(hobbyCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+
+        const hobbiesText = selectedHobbies.length > 0
+          ? selectedHobbies.join(', ')
+          : 'Tiada dipilih';
+
+        // Populate Modal Summary safely using DOM escaping
+        modalSummary.innerHTML = '';
+        const summaryRows = [
+          { label: 'Nama Pelajar', value: nama },
+          { label: 'Email', value: email },
+          { label: 'Jantina', value: jantinaEl.value },
+          { label: 'Kursus', value: kursus },
+          { label: 'Hobi', value: hobbiesText },
+          { label: 'Alamat Rumah', value: alamat }
+        ];
+
+        summaryRows.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'flex flex-col sm:flex-row sm:justify-between gap-0.5 sm:gap-4 border-b border-[#38465e]/50 pb-2 last:border-none last:pb-0';
+          
+          const labelSpan = document.createElement('span');
+          labelSpan.className = 'text-slate-400 font-medium flex-shrink-0';
+          labelSpan.textContent = item.label + ':';
+
+          const valueSpan = document.createElement('span');
+          valueSpan.className = 'text-white font-medium sm:text-right break-words';
+          valueSpan.textContent = item.value;
+
+          row.appendChild(labelSpan);
+          row.appendChild(valueSpan);
+          modalSummary.appendChild(row);
+        });
+
+        // Show Confirmation Modal
+        confirmationModal.classList.remove('hidden');
+        confirmationModal.classList.add('flex');
+      });
+
+      // 6. Close Confirmation Modal
+      closeModalBtn.addEventListener('click', () => {
+        confirmationModal.classList.add('hidden');
+        confirmationModal.classList.remove('flex');
+      });
+
+      confirmationModal.addEventListener('click', (e) => {
+        if (e.target === confirmationModal) {
+          confirmationModal.classList.add('hidden');
+          confirmationModal.classList.remove('flex');
+        }
+      });
+    });
+
+ // DOM Elements
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const closeBtn = document.getElementById('sidebarClose');
+        const backdrop = document.getElementById('sidebarBackdrop');
+        const drawer = document.getElementById('sidebarDrawer');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Functions to Open/Close Sidebar
+        function openSidebar() {
+            drawer.classList.add('active');
+            backdrop.classList.add('active');
+            toggleBtn.classList.add('active');
+            drawer.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeSidebar() {
+            drawer.classList.remove('active');
+            backdrop.classList.remove('active');
+            toggleBtn.classList.remove('active');
+            drawer.setAttribute('aria-hidden', 'true');
+        }
+
+        // Toggle Event
+        toggleBtn.addEventListener('click', () => {
+            if (drawer.classList.contains('active')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        // Close on 'X' Button and Backdrop Click
+        closeBtn.addEventListener('click', closeSidebar);
+        backdrop.addEventListener('click', closeSidebar);
+
+        // Close on Escape Key Press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('active')) {
+                closeSidebar();
+            }
+        });
+
+        // Set Active Nav Link on Click & Auto Close Drawer
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                closeSidebar();
+            });
+        });
+
+  </script>
+</body>
+</html>
